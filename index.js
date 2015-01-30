@@ -53,4 +53,4 @@ var sourcemapReporter = function(file) {
 };
 
 
-exports.sourcemapReporter = sourcemapReporter;
+module.exports = sourcemapReporter;
