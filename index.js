@@ -9,6 +9,7 @@
 
 'use strict';
 
+var path = require('path');
 var gutil = require('gulp-util');
 var c = gutil.colors;
 var SourceMapConsumer = require('source-map').SourceMapConsumer;
@@ -37,18 +38,15 @@ var sourcemapReporter = function(file) {
       colNum = message.col;
     }
 
-    gutil.log(
-      c.red('[') +
-      (
-        typeof message.line !== 'undefined' ?
-          c.yellow( 'L' + lineNum ) +
-          c.red(':') +
-          c.yellow( 'C' + colNum )
-        :
-          c.yellow('GENERAL')
-      ) +
-      c.red('] ') +
-      message.message + ' ' + message.rule.desc + ' (' + message.rule.id + ')');
+    var ret = [
+    message.message + ' ' + message.rule.desc + ' (' + message.rule.id + ') ',
+    c.red('('),
+    c.yellow(path.relative(process.cwd(), originalPos.source) + ':'),
+    typeof message.line !== 'undefined' ? c.yellow( lineNum ) + c.red(':') + c.yellow( colNum ) : c.yellow('GENERAL'),
+    c.red(')')
+    ].join('');
+
+    console.log(ret, '\n');
   });
 };
 
