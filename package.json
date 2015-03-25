@@ -1,6 +1,6 @@
 {
   "name": "gulp-csslint-sourcemap-reporter",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Console reporter adjusting error location by source map for the gulp-csslint module (https://www.npmjs.org/package/gulp-csslint)",
   "main": "index.js",
   "repository": {
