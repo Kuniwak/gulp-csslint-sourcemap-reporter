@@ -12,6 +12,9 @@
     "csslint",
     "sourcemap"
   ],
+  "scripts": {
+    "test": "mocha test"
+  },
   "author": "Kuniwak",
   "license": "MIT",
   "bugs": {
